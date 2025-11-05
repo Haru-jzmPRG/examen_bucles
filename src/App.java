@@ -33,42 +33,47 @@ public class App {
         int aux = 0;
         int digitoM = 0;
         
+        
 
         while ((int)Math.round(aleatorio) > 0) {
             alreves = (alreves * 10) + ((int)aleatorio % 10);
             aleatorio /= 10;
             longitud++;
         } 
-        
-        while (alreves > 0) {
-            digito = alreves % 10; 
-            alreves /= 10;            
+        int aux1 = alreves;
+
+        while (aux1 > 0) {
+            digito = aux1 % 10; 
+            aux1 /= 10;            
 
             if (digito > digitoM) {
                 digitoM = digito;
             }            
-        }
-
+        }      
+        
         for (int i = longitud; i > 0; i--) {
+                digito = alreves % 10;
+                alreves /= 10;
+                aux = digito;
+                // int aux3 = digitoM;
                 for (int j = digitoM + 1; j > 0; j--) {
                     System.out.printf(" ---");
                 }
                 System.out.println();
                 for (int j = digitoM + 1; j > 0; j--) {
-                    
                     if (aux > 0) {
-                        System.out.printf("| %d ", digito);                        
+                        System.out.printf("| %d ",aux);
                         aux -= digito;
-                    }else
-                    System.out.printf("| %s ", "*");
+                    }else {
+                        System.out.printf("| %s ", "*");
+                    }
                 }
                 System.out.print("|");
-                System.out.println();
-                for (int j = digitoM + 1; j > 0; j--) {
+                System.out.println();               
+
+        }
+        for (int j = digitoM + 1; j > 0; j--) {
                     System.out.printf(" ---");
                 }
-        }
-
-        
     }
 }
